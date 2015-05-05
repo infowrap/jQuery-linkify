@@ -27,47 +27,47 @@ $.fn.linkify = function (options) {
 $.fn.linkify.Constructor = Linkified;
 
 // DOM data- API setup
-$(window).on('load', function () {
-	$('[data-linkify]').each(function () {
-		var $this = $(this),
-			$target,
-			target = $this.attr('data-linkify'),
-			options = {
-				tagName: $this.attr('data-linkify-tagname'),
-				newLine: $this.attr('data-linkify-newline'),
-				target: $this.attr('data-linkify-target'),
-				linkClass: $this.attr('data-linkify-linkclass')
-			};
+// $(window).on('load', function () {
+// 	$('[data-linkify]').each(function () {
+// 		var $this = $(this),
+// 			$target,
+// 			target = $this.attr('data-linkify'),
+// 			options = {
+// 				tagName: $this.attr('data-linkify-tagname'),
+// 				newLine: $this.attr('data-linkify-newline'),
+// 				target: $this.attr('data-linkify-target'),
+// 				linkClass: $this.attr('data-linkify-linkclass')
+// 			};
 
-		// Delete undefined options
-		for (var option in options) {
-			if (typeof options[option] === 'undefined') {
-				delete options[option];
-			}
-		}
+// 		// Delete undefined options
+// 		for (var option in options) {
+// 			if (typeof options[option] === 'undefined') {
+// 				delete options[option];
+// 			}
+// 		}
 
-		$target = target === 'this' ? $this : $this.find(target);
-		$target.linkify(options);
+// 		$target = target === 'this' ? $this : $this.find(target);
+// 		$target.linkify(options);
 
-	});
-});
+// 	});
+// });
 
-// Setup click events for linkified elements
-$('body').on('click', '.linkified', function () {
-	var $link = $(this),
-		url = $link.attr('href'),
-		isEmail = /^mailto:/i.test(url),
-		target = $link.attr('target');
+// // Setup click events for linkified elements
+// $('body').on('click', '.linkified', function () {
+// 	var $link = $(this),
+// 		url = $link.attr('href'),
+// 		isEmail = /^mailto:/i.test(url),
+// 		target = $link.attr('target');
 
-	if (isEmail) {
+// 	if (isEmail) {
 
-		// mailto links ignore the target
-		window.location.href = url;
+// 		// mailto links ignore the target
+// 		window.location.href = url;
 
-	} else {
-		window.open(url, target);
-	}
+// 	} else {
+// 		window.open(url, target);
+// 	}
 
-	return false;
-});
+// 	return false;
+// });
 
